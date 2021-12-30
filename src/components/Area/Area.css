@@ -1,0 +1,64 @@
+.area {
+    margin-bottom: 20px;
+}
+
+.area.livingroom .header {
+    background-color:#ddd3cd;
+}
+
+.area.kitchen .header {
+    background-color:#d4e4dc;
+}
+
+.area.bedroom .header {
+    background-color:#dad6e8;
+}
+
+.area.bathroom .header {
+    background-color:#c8eded;
+}
+
+.area.diningroom .header {
+    background-color:#ebd1d1;
+}
+
+.area.hal .header {
+    background-color:#d7d7d7;
+}
+
+.area.laudry .header {
+    background-color:#d8ebf5;
+}
+
+.area.balcony .header {
+    background-color:#e6e6b5;
+}
+
+.area.basement .header {
+    background-color:#d1d1d1;
+}
+
+.area.kids .header {
+    background-color:#f1f2b6;
+}
+
+.area .header {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background-color:#dddddd;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.area .addDeviceButton .MuiSvgIcon-root {
+    border: 2px solid #ffffff;
+}
+
+.area thead tr th{
+    color: #999999;
+}
+
+.area .monospace {
+    font-family: monospace;
+}

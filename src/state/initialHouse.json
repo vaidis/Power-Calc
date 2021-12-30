@@ -1,0 +1,117 @@
+{
+    "id": 0,
+    "title": "Main",
+    "cost": {
+        "id": 0,
+        "country": "Greece",
+        "currency": "EU",
+        "symbol": 0,
+        "price": 0.18
+    },
+    "areas": [
+        {
+            "id": 0,
+            "title": "Living Room",
+            "devices": [
+                {
+                    "model": "TV LCD 55 inch",
+                    "watt": 103,
+                    "hours": 120
+                },
+                {
+                    "model": "Home Cinema Amplifier",
+                    "watt": 90,
+                    "hours": 60
+                },
+                {
+                    "model": "Home Cinema Sub Woofer",
+                    "watt": 80,
+                    "hours": 55
+                },
+                {
+                    "model": "Lamp",
+                    "watt": 7,
+                    "hours": 60
+                },
+                {
+                    "model": "Lamp",
+                    "watt": 48,
+                    "hours": 120
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "title": "Kitchen",
+            "devices": [
+                {
+                    "model": "Oven Bottom",
+                    "watt": 3000,
+                    "hours": 8
+                },
+                {
+                    "model": "Over Top Small Size",
+                    "watt": 800,
+                    "hours": 4
+                },
+                {
+                    "model": "Over Top Medium Size",
+                    "watt": 1500,
+                    "hours": 6
+                },
+                {
+                    "model": "Dishwasher",
+                    "watt": 1800,
+                    "hours": 30
+                },
+                {
+                    "model": "Refrigerator",
+                    "watt": 120,
+                    "hours": 744
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Bedroom",
+            "devices": [
+                {
+                    "model": "Lamp",
+                    "watt": 48,
+                    "hours": 120
+                },
+                {
+                    "model": "Air Condition",
+                    "watt": 300,
+                    "hours": 1200
+                },
+                {
+                    "model": "Vacuum Cleaner",
+                    "watt": 20,
+                    "hours": 800
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Bathroom",
+            "devices": [
+                {
+                    "model": "Lamp",
+                    "watt": 48,
+                    "hours": 120
+                },
+                {
+                    "model": "Hair Dryer",
+                    "watt": 8,
+                    "hours": 1200
+                },
+                {
+                    "model": "Washing Machine",
+                    "watt": 45,
+                    "hours": 500
+                }
+            ]
+        }
+    ]
+}
