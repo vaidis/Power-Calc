@@ -5,6 +5,8 @@ import Header from './Header'
 import Footer from "./Footer";
 import Houses from "../components/House/Houses";
 
+
+
 export default function Layout() {
     return (
         <div>

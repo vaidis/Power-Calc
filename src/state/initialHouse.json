@@ -16,27 +16,32 @@
                 {
                     "model": "TV LCD 55 inch",
                     "watt": 103,
-                    "hours": 120
+                    "hours": 4,
+                    "multiplier": 31
                 },
                 {
                     "model": "Home Cinema Amplifier",
                     "watt": 90,
-                    "hours": 60
+                    "hours": 5,
+                    "multiplier": 4
                 },
                 {
                     "model": "Home Cinema Sub Woofer",
                     "watt": 80,
-                    "hours": 55
+                    "hours": 3,
+                    "multiplier": 4
                 },
                 {
                     "model": "Lamp",
                     "watt": 7,
-                    "hours": 60
+                    "hours": 12,
+                    "multiplier": 31
                 },
                 {
                     "model": "Lamp",
                     "watt": 48,
-                    "hours": 120
+                    "hours": 12,
+                    "multiplier": 31
                 }
             ]
         },
@@ -47,27 +52,38 @@
                 {
                     "model": "Oven Bottom",
                     "watt": 3000,
-                    "hours": 8
+                    "hours": 4,
+                    "multiplier": 1
                 },
                 {
                     "model": "Over Top Small Size",
                     "watt": 800,
-                    "hours": 4
+                    "hours": 2,
+                    "multiplier": 4
                 },
                 {
                     "model": "Over Top Medium Size",
                     "watt": 1500,
-                    "hours": 6
+                    "hours": 1,
+                    "multiplier": 4
                 },
                 {
                     "model": "Dishwasher",
                     "watt": 1800,
-                    "hours": 30
+                    "hours": 2,
+                    "multiplier": 4
                 },
                 {
                     "model": "Refrigerator",
                     "watt": 120,
-                    "hours": 744
+                    "hours": 744,
+                    "multiplier": 1
+                },
+                {
+                    "model": "Coffee Machine",
+                    "watt": 800,
+                    "hours": 0.25,
+                    "multiplier": 31
                 }
             ]
         },
@@ -78,17 +94,20 @@
                 {
                     "model": "Lamp",
                     "watt": 48,
-                    "hours": 120
+                    "hours": 4,
+                    "multiplier": 31
                 },
                 {
                     "model": "Air Condition",
                     "watt": 300,
-                    "hours": 1200
+                    "hours": 4,
+                    "multiplier": 4
                 },
                 {
                     "model": "Vacuum Cleaner",
-                    "watt": 20,
-                    "hours": 800
+                    "watt": 800,
+                    "hours": 1,
+                    "multiplier": 4
                 }
             ]
         },
@@ -99,17 +118,20 @@
                 {
                     "model": "Lamp",
                     "watt": 48,
-                    "hours": 120
+                    "hours": 4,
+                    "multiplier": 31
                 },
                 {
                     "model": "Hair Dryer",
-                    "watt": 8,
-                    "hours": 1200
+                    "watt": 1200,
+                    "hours": 3,
+                    "multiplier": 4
                 },
                 {
                     "model": "Washing Machine",
                     "watt": 45,
-                    "hours": 500
+                    "hours": 4,
+                    "multiplier": 4
                 }
             ]
         }

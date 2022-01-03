@@ -25,15 +25,13 @@ import CurrencyShow from "../Common/CurrencyShow";
 
 import "./Area.css";
 
-
-
 function Area({ houseIndex, areaIndex, area, cost }) {
   const dispatch = useDispatch();
 
   // Total area cost
   let areaCost = 0;
   area.devices.map((device) => {
-    let deviceCost = ((device.watt * device.hours) / 1000 ) * cost.price;
+    let deviceCost = ((device.watt * (device.hours * device.multiplier)) / 1000) * cost.price;
     areaCost += Number(deviceCost);
     return null;
   });
@@ -52,13 +50,18 @@ function Area({ houseIndex, areaIndex, area, cost }) {
     dispatch(delArea(payload));
   }
 
+  function hoursMultiplier(value) {
+    if (value === 1) return "Monthly";
+    if (value === 4) return "Weekly";
+    if (value === 31) return "Daily";
+  }
+
   // create css classes to color area header
   const areaClass = area.title.toLowerCase().replace(/\s/g, "");
 
   return (
     <div className={"area " + areaClass}>
       <div className="header">
-
         {/*   Area Title and Cost   */}
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -88,8 +91,9 @@ function Area({ houseIndex, areaIndex, area, cost }) {
           <TableHead>
             <TableRow>
               <TableCell align="left">Model</TableCell>
-              <TableCell align="right">Watt</TableCell>
-              <TableCell align="right">Hours (Monthly)</TableCell>
+              <TableCell align="right" sx={{m: "4"}}>Watt</TableCell>
+              <TableCell align="right" sx={{p: "0", m: "0"}}>Hours</TableCell>
+              <TableCell align="left">Every</TableCell>
               <TableCell align="right">Cost</TableCell>
               <TableCell align="center">Delete</TableCell>
               <TableCell align="center">Edit</TableCell>
@@ -102,12 +106,35 @@ function Area({ houseIndex, areaIndex, area, cost }) {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="left">{device.model}</TableCell>
-                <TableCell align="right">{device.watt}</TableCell>
-                <TableCell align="right">{device.hours}</TableCell>
+                <TableCell align="right" sx={{m: "4"}}>{device.watt}</TableCell>
+                <TableCell align="right" sx={{p: "0", m: "0"}}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      alignItems: "center",
+                    }}
+                  >
+                    {device.hours}
+                  </Box>
+                </TableCell>
+                <TableCell align="left">
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
+                      p: "0",
+                      m: "0"
+                    }}
+                  >
+                    {hoursMultiplier(device.multiplier)}
+                  </Box>
+                </TableCell>
                 <TableCell align="right">
-                  {parseFloat(((device.watt * device.hours) / 1000) * cost.price).toFixed(
-                    2
-                  )}
+                  {parseFloat(
+                    ((device.watt * (device.hours * device.multiplier)) / 1000) * cost.price
+                  ).toFixed(2)}
                   <CurrencyShow houseIndex={houseIndex} />
                 </TableCell>
                 <TableCell align="center">

@@ -52,6 +52,10 @@ const houseSlice = createSlice({
         .areas[action.payload.areaId]
         .devices[action.payload.deviceId]
         .hours = action.payload.hours
+      state.houses[action.payload.houseIndex]
+        .areas[action.payload.areaId]
+        .devices[action.payload.deviceId]
+        .multiplier = action.payload.multiplier
     },
     delDevice(state, action) {
       console.log(current(state.houses[action.payload.house]
@@ -69,7 +73,12 @@ const houseSlice = createSlice({
     },
     setSymbol(state, action) {
       state.houses[action.payload.houseIndex].cost.symbol = action.payload.symbol
-    },    
+    },
+    setMultiplier(state, action) {
+      state.houses[action.payload.houseIndex]
+      .areas[action.payload.areaIndex]
+      .devices[action.payload.deviceIndex].multiplier = action.payload.multiplier
+    },
   }});
 
 export default houseSlice.reducer;
@@ -86,5 +95,6 @@ export const {
   addHouse,
   delHouse,
   setPrice,
-  setSymbol
+  setSymbol,
+  setMultiplier
 } = houseSlice.actions;

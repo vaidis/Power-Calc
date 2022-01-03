@@ -28,7 +28,7 @@ export default function ListCategory({ setCategoryId }) {
         selectCategories[doc.data().id] = doc.data().name;
       });
 
-      // store categories to local var
+      // store categories to local var for select input field
       setCategories(selectCategories);
       return null
     };
@@ -37,7 +37,7 @@ export default function ListCategory({ setCategoryId }) {
     return null
   }, [setCategories]);
 
-  // Select input field options
+  // Selected category
   const [selected, setSelected] = React.useState("");
 
   const handleChange = (e) => {

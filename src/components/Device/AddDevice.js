@@ -32,6 +32,7 @@ function AddDevice({ houseIndex, areaIndex }) {
   const [device, setDevice] = React.useState("");
 
   // Modal
+  const [disabled, setDisabled] = React.useState(true);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -44,6 +45,8 @@ function AddDevice({ houseIndex, areaIndex }) {
     dispatch(addDevice(payload));
     handleClose();
   };
+
+
 
   return (
     <div>
@@ -71,6 +74,7 @@ function AddDevice({ houseIndex, areaIndex }) {
             <ListCategory setCategoryId={setCategoryId} />
             {categoryId !== undefined && (
               <ListDevice
+                setDisabled={setDisabled}
                 categoryId={categoryId}
                 device={device}
                 setDevice={setDevice}
@@ -82,9 +86,10 @@ function AddDevice({ houseIndex, areaIndex }) {
           <Box sx={{ p: 4, display: "flex", justifyContent: "flex-end"}}>
             <Button onClick={() => handleClose()}>Cancel</Button>
             <Button
+              disabled={disabled}
               variant="contained"
               onClick={() => addDeviceHandler()}
-              disabled={device === "" ? true : false}
+              // disabled={device === "" ? true : false}
             >
               Save
             </Button>

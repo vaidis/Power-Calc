@@ -14,12 +14,11 @@ import { db } from "../../firebase/config";
 
 
 
-export default function ListDevice({ categoryId, device, setDevice }) {
+export default function ListDevice({ categoryId, device, setDevice, setDisabled }) {
 
   const [devices, setDevices] = React.useState("");
 
   React.useEffect(() => {
-
     const getDevices = async () => {
       // on change category reset device fields
       setDevice("");
@@ -37,6 +36,7 @@ export default function ListDevice({ categoryId, device, setDevice }) {
           model: doc.data().model,
           watt: doc.data().watt,
           hours: doc.data().hours,
+          multiplier: doc.data().multiplier,
         });
         return null
       });
@@ -48,7 +48,6 @@ export default function ListDevice({ categoryId, device, setDevice }) {
     getDevices();
     return null
   }, [categoryId, setDevices, setDevice]);
-
 
     // Select input field
     const handleChange = (e) => {
@@ -68,6 +67,21 @@ export default function ListDevice({ categoryId, device, setDevice }) {
     setDevice((prevState) => ({ ...prevState, hours: hours }));
   };
 
+  const onMultiplierChange = (e) => {
+    const multiplier = e.target.value;
+    setDevice((prevState) => ({ ...prevState, multiplier: multiplier }));
+  };
+
+  // Disable submit if hours is more than normal
+  React.useEffect(() => {
+    if (device.multiplier === 1 && device.hours > 744) {setDisabled(true)} 
+    else if (device.multiplier === 4 && device.hours > 168) {setDisabled(true)}
+    else if (device.multiplier === 31 && device.hours > 24) {setDisabled(true)}
+    else setDisabled(false);
+  }, [device.hours, device.multiplier, setDisabled]);
+
+
+  
   return (
     <div>
       {devices ? (
@@ -97,6 +111,7 @@ export default function ListDevice({ categoryId, device, setDevice }) {
           </Box>
 
           {device && (
+            <Box>
             <Box sx={{ mb: 4, display: "flex", justifyContent: "space-between"  }}>
                 <TextField
                   onChange={onWattChange}
@@ -114,6 +129,32 @@ export default function ListDevice({ categoryId, device, setDevice }) {
                   id="hours"
                   type="number"
                 />
+
+              <Select
+                id="simple-select"
+                value={device.multiplier}
+                onChange={onMultiplierChange}
+                sx={{ color: (theme) => theme.palette.primary.main }}
+              >
+                <MenuItem value={31}>Daily</MenuItem>
+                <MenuItem value={4}>Weekly</MenuItem>
+                <MenuItem value={1}>Monthly</MenuItem>
+              </Select>
+            </Box>
+
+              <Box
+                sx={{
+                  pl: 4,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  color: "#eb78a9"
+                }}
+              >
+                {device.multiplier === 1 && <div>Maximum <strong>montly</strong> hours: 744 </div>}
+                {device.multiplier === 4 && <div>Maximum <strong>weekly</strong> hours: 168 </div>}
+                {device.multiplier === 31 && <div>Maximum <strong>daily</strong> hours: 24 </div>}
+              </Box>
             </Box>
           )}
         </Box>

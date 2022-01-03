@@ -20,8 +20,9 @@ function HouseCost({ houseIndex }) {
     Object.keys(house.areas[item].devices).map((device, index) => {
       let watt = house.areas[item].devices[device].watt;
       let hours = house.areas[item].devices[device].hours;
-      let deviceWatt = ((watt * hours) / 1000) * house.cost.price;
-      areaTotal = areaTotal + deviceWatt;
+      let multiplier = house.areas[item].devices[device].multiplier;
+      let deviceKWH = ((watt * (hours * multiplier)) / 1000) * house.cost.price;
+      areaTotal = areaTotal + deviceKWH;
       return null;
     });
     return null;

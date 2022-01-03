@@ -62,3 +62,14 @@
 .area .monospace {
     font-family: monospace;
 }
+
+.MuiInput-root,
+.MuiInput-underline,
+.MuiInputBase-root,
+.MuiInputBase-colorPrimary,
+.MuiInputBase-formControl,
+.MuiInputBase-sizeSmall,
+.css-9ulpez-MuiInputBase-root-MuiInput-root,
+.css-9ulpez-MuiInputBase-root-MuiInput-root:before {
+    border: unset !important;
+}
