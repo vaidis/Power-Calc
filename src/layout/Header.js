@@ -20,7 +20,7 @@ export default function Header() {
             <Box sx={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
                 <ElectricalServicesIcon />
                 <Typography variant="h1" sx={{ ml: 1, fontSize: '1.6em' }}>
-                    Power Grid Calulator
+                    Power Grid Calculator
                 </Typography>
             </Box>
             <Authentication />
